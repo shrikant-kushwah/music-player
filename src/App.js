@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HomeIcon, TrendingUpIcon, LibraryIcon, SearchIcon } from '@heroicons/react/outline';
-import { FaPlay, FaPause, FaRandom, FaStepBackward, FaStepForward,} from 'react-icons/fa';
+import { FaPlay, FaPause, FaRandom, FaStepBackward, FaStepForward, } from 'react-icons/fa';
 import { BsRepeat } from "react-icons/bs";
 import Logo from './Assets/Logo.svg';
 import Artist from './Assets/Artist.svg';
 import MusicPlayer from './components/MusicPlayer';
 import SongList from './components/SongList';
 import Pic from './Assets/Pic.svg';
+import { IoSettings } from "react-icons/io5";
+import { MdLogout } from "react-icons/md";
+
 
 const App = () => {
   const initialSongs = [
-    { id: 1, title: 'Song One', url: '/songs/song1.mp3' },
-    { id: 2, title: 'Song Two', url: '/songs/song2.mp3' },
-    { id: 3, title: 'Song Three', url: '/songs/song3.mp3' },
+    { id: 1, title: 'Chaska', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' },
+    { id: 2, title: 'Song Two', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3' },
+    { id: 3, title: 'Song Three', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3' },
   ];
 
   const [songs, setSongs] = useState(initialSongs);
@@ -29,34 +32,48 @@ const App = () => {
       {/* Sidebar */}
       <div className="w-64 bg-[#0E0E0E] text-white flex flex-col p-4">
         <img className="w-[312px] h-[64px] mb-8" src={Logo} alt="MusicApp Logo" />
-        <nav className="flex flex-col space-y-4">
+        <nav className="flex flex-col space-y-4 overflow-hidden">
+
           <div className="text-[15px] font-semibold p-2 rounded">
-            <span>Menu</span>
+            <span>MENU</span>
           </div>
-          <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
-            <HomeIcon className="w-6 h-6" />
-            <span>Home</span>
-          </Link>
-          <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
-            <TrendingUpIcon className="w-6 h-6" />
-            <span>Trends</span>
-          </Link>
-          <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
-            <LibraryIcon className="w-6 h-6" />
-            <span>Library</span>
-          </Link>
-          <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
-            <SearchIcon className="w-6 h-6" />
-            <span>Discover</span>
-          </Link>
+          <div>
+            <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
+              <HomeIcon className="w-6 h-6 text-[#F42727]" />
+              <span>Home</span>
+            </Link>
+            <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
+              <TrendingUpIcon className="w-6 h-6 text-[#F42727]" />
+              <span>Trends</span>
+            </Link>
+            <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
+              <LibraryIcon className="w-6 h-6 text-[#F42727]" />
+              <span>Library</span>
+            </Link>
+            <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
+              <SearchIcon className="w-6 h-6 text-[#F42727]" />
+              <span>Discover</span>
+            </Link>
+          </div>
+          <div className='py-28'>
+            <div className="text-[15px] font-semibold p-2 rounded">
+              <span>GENERAL</span>
+            </div>
+            <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
+              <IoSettings className='w-6 h-6 text-[#F42727]' />
+              <span>Setting</span>
+            </Link>
+            <Link to="#" className="flex items-center space-x-3 p-2 hover:bg-blue-700 rounded">
+              <MdLogout className='w-6 h-6 text-[#F42727]' />
+              <span>Logout</span>
+            </Link>
+          </div>
         </nav>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content - Top Menu*/}
       <div className="flex bg-gradient-to-t from-[#120101] to-[#7f0707]">
-        {/* Left Content */}
         <div className="flex-1 w-[700px] mx-auto p-9">
-          {/* Top Menu */}
           <div className="flex items-center absolute justify-between w-[340px] h-[27px] mb-8">
             <div className="flex space-x-8">
               <Link to="#" className="text-[#F6F6F6] text-[18px] font-semibold hover:text-yellow-500">
@@ -72,13 +89,13 @@ const App = () => {
                 Radio
               </Link>
             </div>
-            <div className="relative justify-between mx-10">
+            <div className="relative justify-between text-[#f0f0f0] mx-10">
               <input
                 type="text"
-                className="bg-[#330b0b] w-[345px] h-[40px] text-white p-3 text-[15px] rounded-full pl-4 focus:outline-none focus:ring-2 focus:ring-gray-100 transition duration-300"
+                className="bg-[#330b0b] w-[345px] h-[40px] text-[#f0f0f0] p-3 text-[15px] rounded-full pl-4 focus:outline-none focus:ring-2 focus:ring-gray-100"
                 placeholder="Michael Jackson"
               />
-              <SearchIcon className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-500" />
+              <SearchIcon className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-[#f0f0f0] cursor-pointer" />
             </div>
           </div>
 
