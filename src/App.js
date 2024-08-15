@@ -10,6 +10,7 @@ import SongList from './components/SongList';
 import Pic from './Assets/Pic.svg';
 import { IoSettings } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
+import MusicApi from './components/MusicApi';
 
 
 const App = () => {
@@ -123,6 +124,7 @@ const App = () => {
           </div>
         </div>
 
+        <MusicApi/>
         {/* Right Sidebar with Music Player Card */}
         <div className="w-[300px] bg-[#1f0303] p-6 shadow-lg ml-6 flex flex-col justify-between">
           <div className="flex flex-col absolute w-[244px] h-[330px] items-center bg-[#6B0000] p-4 mt-56 rounded-lg">
